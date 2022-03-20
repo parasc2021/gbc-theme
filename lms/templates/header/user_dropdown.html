@@ -56,12 +56,12 @@ should_show_order_history = should_redirect_to_order_history_microfrontend() and
         % endif
         % if request.user.is_superuser or request.user.is_staff:
             <div class="mobile-nav-item dropdown-item dropdown-nav-item">
-                <a href="${reverse('grade_data')}" role="menuitem">${_("Grade Report")}</a>
+                <a href="/grade-data" role="menuitem">${_("Grade Report")}</a>
             </div>
         % endif
         % if request.user.is_superuser or request.user.is_staff:
             <div class="mobile-nav-item dropdown-item dropdown-nav-item">
-                <a href="${reverse('program_data')}" role="menuitem">${_("Program Report")}</a>
+                <a href="/program-data" role="menuitem">${_("Program Report")}</a>
             </div>
         % endif
         <div class="mobile-nav-item dropdown-item dropdown-nav-item"><a href="${reverse('logout')}" role="menuitem">${_("Sign Out")}</a></div>
