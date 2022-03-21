@@ -1,6 +1,7 @@
 <%!
     from common.djangoapps.leaderboard.models import LeaderBoard
     from common.djangoapps.custom_reports.helpers import get_course_status
+    from common.djangoapps.course_manage.models import CourseManage
 %>
 <div class="table-responsive">
     <table class="table table-bordered">
@@ -23,7 +24,8 @@
                             score = LeaderBoard.get_score(user, course.id)
                             status = get_course_status(request.user, course.id, user)
                             try:
-                                weighted_score = (score * float(course.course_weight))/100
+                                course_manage = CourseManage.objects.get(course_id=course.id)
+                                weighted_score = (score * float(course_manage.weight)) / 100
                                 total_score += weighted_score
                             except Exception as e:
                                 total_score += 0
